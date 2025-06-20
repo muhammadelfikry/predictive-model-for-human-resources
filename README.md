@@ -25,12 +25,12 @@ Manajemen menyadari bahwa tingginya angka attrition dapat mengganggu stabilitas 
 Sumber data: 
 https://raw.githubusercontent.com/dicodingacademy/dicoding_dataset/refs/heads/main/employee/employee_data.csv
 
-
 Setup environment:
 
-```bash
-pip install pandas joblib
+Jalankan kode berikut untuk melakukan installasi library yang dibutuhkan untuk menjalankan proyek ini. 
 
+```bash
+pip install requirements.txt
 ```
 
 Cara penggunaan model prediksi:
@@ -95,9 +95,35 @@ Dashboard yang dikembangkan bertujuan untuk membantu manajer HR dalam memahami d
 - Insight visual bahwa Job Level 1 dan departemen Research & Development memiliki tingkat attrition tertinggi.
 
 Dashboard ini terhubung langsung dengan database yang menyimpan hasil prediksi dan data aktual sehingga dapat diperbarui secara dinamis.
-Metabase:
+
+**Metabase**:
+
 ![muhammadelfikry-dashboard](https://github.com/user-attachments/assets/97215261-eb01-4fca-a785-5be0d81695ba)
 
+**Menjalankan dashboard**:
+
+Buka **Command Prompt (CMD)** di direktori tempat folder `metabase-data` berada, lalu jalankan perintah berikut. pastikan docker sudah terinstall:
+
+```cmd
+docker run -d -p 3000:3000 ^
+  -v %cd%\metabase-data:/metabase.db ^
+  -e MB_DB_TYPE=h2 ^
+  -e MB_DB_FILE=/metabase.db/metabase.db ^
+  --name metabase ^
+  metabase/metabase
+```
+
+Setelah container berjalan, buka browser dan akses:
+
+```bash
+http://localhost:3000/setup
+```
+
+Pada halaman utama Metabase masukan email dan password berikut untuk login:
+
+**email**: root@mail.com
+
+**password**: root123
 
 ## Conclusion
 
